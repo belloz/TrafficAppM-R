@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+<div class="container">
+
+    <!-- col -->
+    <div class="col-md-6 offset-md-3">
+        <form method="POST">
+
+            <!-- form user info -->
+            <div class="card card-outline-secondary">
+                <div class="card-header">
+                    <h3 class="mb-0">Ticket</h3>
+                </div>
+                <div class="card-body">
+                    <form class="form" role="form" autocomplete="off">
+                        {% csrf_token %}
+                        <fieldset>
+                            <label class="mb-0">Title</label>
+                            <div class="row mb-1">
+                                <div class="col-lg-12">
+                                    {{ form.title }}
+                                </div>
+                            </div>
+                            <label class="mb-0">Category</label>
+                            <div class="row mb-1">
+                                <div class="col-lg-12">
+                                    {{ form.category }}
+                                </div>
+                            </div>
+                            <label class="mb-0">Message</label>
+                            <div class="row mb-1">
+                                <div class="col-lg-12">
+                                    {{ form.text }}
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg ">Send Message</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <!-- /form user info -->
+        </form>
+    </div>
+    <!--/col-->
+
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+    <h1>
+        Category: <button type="button" class="btn btn-dark">{{ post.0.category }}</button>
+
+    </h1>
+    <br>
+
+    {% for post in post %}
+
+        <b><a href="{% url 'traffic:post_detail' id=post.id %}">{{ post.title|truncatechars:90 }}: {{ post.text|truncatechars:106 }}</a></b><br>
+
+    <!-- Category: -->
+        {% if post.category == "Broken" %}
+                <a href="{% url 'traffic:post_categories' category=post.category %}" class="btn btn-outline-warning btn-sm">{{ post.category }}</a>
+            {% elif post.category == "Danger" %}
+                <a href="{% url 'traffic:post_categories' category=post.category %}" class="btn btn-outline-dark btn-sm">{{ post.category }}</a>
+            {% elif post.category == "Incident" %}
+                <a href="{% url 'traffic:post_categories' category=post.category %}" class="btn btn-outline-danger btn-sm">{{ post.category }}</a>
+            {% elif post.category == "Info" %}
+                <a href="{% url 'traffic:post_categories' category=post.category %}" class="btn btn-outline-primary btn-sm">{{ post.category }}</a>
+            {% else %} <!-- Warning: -->
+                <a href="{% url 'traffic:post_categories' category=post.category %}" class="btn btn-outline-info btn-sm">{{ post.category }}</a>
+        {% endif %}
+    <!-- /. category -->
+
+    <button type="button" class="btn btn-primary btn-sm">{{post.published_date}}</button>
+        <br><br>
+
+    {% endfor %}
+
+{% endblock %}

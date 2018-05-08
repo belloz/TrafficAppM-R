@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+    <h1>{{ post.title }}</h1>
+    <!-- Category: -->
+        {% if post.category == "Broken" %}
+                <a href="{% url 'traffic:post_categories' category=post.category %}" class="btn btn-outline-warning btn-sm">{{ post.category }}</a>
+            {% elif post.category == "Danger" %}
+                <a href="{% url 'traffic:post_categories' category=post.category %}" class="btn btn-outline-dark btn-sm">{{ post.category }}</a>
+            {% elif post.category == "Incident" %}
+                <a href="{% url 'traffic:post_categories' category=post.category %}" class="btn btn-outline-danger btn-sm">{{ post.category }}</a>
+            {% elif post.category == "Info" %}
+                <a href="{% url 'traffic:post_categories' category=post.category %}" class="btn btn-outline-primary btn-sm">{{ post.category }}</a>
+            {% else %} <!-- Warning: -->
+                <a href="{% url 'traffic:post_categories' category=post.category %}" class="btn btn-outline-info btn-sm">{{ post.category }}</a>
+        {% endif %}
+    <!-- /. category -->
+    <br><br>
+    {{ post.text }}
+    <br><br>
+    Posted: <button type="button" class="btn btn-primary btn-sm">{{ post.published_date }}</button>
+    <br>
+    By: {{ post.author }}
+
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block main %}
+    <br><br><br>
+    <img src="{% static 'traffic/img/logo.png' %}"/>
+    <br><br>
+    <span class="blue-font"><h1>Emergency</h1></span>
+    <p class="lead blue-font">Post a ticket, if you are in trouble</p>
+    <br>
+    <a href="{% url 'traffic:post_ticket' %}" class="btn btn-primary btn-lg">Post</a>
+
+{% endblock %}
