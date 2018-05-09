@@ -49,3 +49,8 @@ def profile(request, id):
 
 def help(request):
     return render(request, 'help.html', {})
+
+
+def tst(request):
+    post = Post.objects.values('tst').distinct()
+    return render(request, 'tst.html', {'post': post})

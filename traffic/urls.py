@@ -10,4 +10,6 @@ urlpatterns = [
     url(r'^post_list/(?P<id>\d+)/$', views.post_detail, name="post_detail"),
     url(r'^post_list/category/(?P<category>\w+)/$', views.post_categories, name="post_categories"),
     url(r'^help/$', views.help, name="help"),
+
+    url(r'^tst/$', views.tst, name="tst"),
 ]
